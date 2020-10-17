@@ -46,8 +46,8 @@ class User(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	mail = db.Column(db.String(150))
 	password_hash = db.Column(db.String(128))
-	country_page = db.Column(db.String(10)) 
-	rol = db.Column(db.String(50))
+	edad = db.Column(db.String(10)) 
+	genero = db.Column(db.String(30))
 	created_at = db.Column(db.DateTime(), default=datetime.datetime.now(tz))
 	updated_at = db.Column(db.DateTime(), onupdate=datetime.datetime.now(tz), default=datetime.datetime.now(tz))	
 
@@ -79,46 +79,36 @@ class Token(db.Model):
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #ENDPOINTS DE ACCESO Y CREACION DE USUARIOS
 
-@app.route('/holders', methods=['POST'])
-def new_holder():
+@app.route('/users', methods=['POST'])
+def new_user():
 	
 	try :
 		data = request.form
 		print(data)
-		username = data['username']
 		password = data['password']
 		mail = data['mail']
-		address = data['address']
-		phone = data['phone']
-		birthday = data['birthday']
-		sex = data['sex']
-		country_page = data['country_page'] 
+		edad = data['edad']
+		genero = data['genero']
+		
 	except :
 		return jsonify({'status': 'failed', 'msg': 'missing arguments'}),400
 
-	if country_page == 'mx':
-		sk = stripe_key_spanish
-	elif country_page == 'usa':
-		sk = stripe_key_english
-	else :
-		return jsonify({'status': 'failed', 'msg': 'Invalid country'}),400
+	
 
 	if username is None or mail is None or password is None or address is None or phone is None:
 		return (jsonify({'status': 'failed', 'msg': 'missing arguments'}),400)	# missing arguments
 	if User.query.filter_by(mail=mail).first() is not None:
 		return (jsonify({'status': 'failed', 'msg': 'User exists'}),400)	# existing user
-	user_strip_id = CS.createClient(sk, username, mail, phone)
-	if not user_strip_id :
-		return (jsonify({'status': 'failed', 'msg': 'Error creating stripe user'}),500)
+	
 
 	try :
-		user = User(mail = mail, country_page = country_page, rol = "holder", created_at = datetime.datetime.now(tz), updated_at = datetime.datetime.now(tz))
+		user = User(mail = mail, edad = edad, genero = genero, created_at = datetime.datetime.now(tz), updated_at = datetime.datetime.now(tz))
 		user.hash_password(password)
 		db.session.add(user)
 		db.session.commit()
-		holder = Holder(username = username, mail = mail, address = address, phone = phone, birthday = birthday, sex = sex, user_strip_id = user_strip_id, created_at = datetime.datetime.now(tz), updated_at = datetime.datetime.now(tz))
-		db.session.add(holder)
-		db.session.commit()
+		
+		
+		
 	except TypeError :
 		return jsonify({'status': 'failed', 'msg': 'Invalid value for sex'}),400
 
@@ -139,25 +129,12 @@ def login():
 	user = User.query.filter_by(mail=mail).first()
 	if not user or not user.verify_password(password):
 		return jsonify({"msg": "Wrong mail or password", "status": "failed"}), 400
-	country = db.session.query(User.country_page).filter_by(mail=mail).first()[0]
-	data_holder = db.session.query(Holder.username, Holder.user_strip_id).filter_by(mail=mail).first()
-	if data_holder :
-		print(data_holder)
-		nombre = data_holder[0]
-		user_strip_id = data_holder[1]
-		rol = 'holder'
-	else :
-		data_beneficiary = db.session.query(Beneficiary.username).filter_by(mail=mail).first()
-		nombre = data_beneficiary[0]
-		user_strip_id = ""
-		rol = "beneficiary"
-		print(data_beneficiary)
 	
 	
 	time_acces = datetime.timedelta(seconds=600) #cambiar a 600 segundos cuando se implemente el dashboard
 	time_refresh = datetime.timedelta(days=10) 
-	access_token = create_access_token(identity={'mail': mail, 'nombre': nombre, 'stripe_id': user_strip_id, 'rol': rol, 'country': country}, expires_delta=time_acces)
-	refresh_token = create_refresh_token(identity={'mail': mail, 'nombre': nombre, 'stripe_id': user_strip_id, 'rol': rol, 'country': country}, expires_delta=time_refresh)
+	access_token = create_access_token(identity={'mail': mail}, expires_delta=time_acces)
+	refresh_token = create_refresh_token(identity={'mail': mail}, expires_delta=time_refresh)
 	ret = {
 		'access_token': access_token,
 		'refresh_token': refresh_token
@@ -217,10 +194,6 @@ def refresh():
 @app.route('/prueba', methods=['GET'])
 def hola():
 	return jsonify({'message': 'hola'}), 200
-
-
-
-
 
 
 
