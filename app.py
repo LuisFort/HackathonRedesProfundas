@@ -9,11 +9,7 @@ user = os.getenv('DB_USER')
 passwd = os.getenv('DB_PASS')
 database = os.getenv('DB_NAME')
 secret_key = os.getenv('JWT_SECRET_KEY')
-#stripe_key_spanish = os.getenv('KEYSTRIPEPRODSPANISH')
-#stripe_key_english = os.getenv('KEYSTRIPEPRODENGLISH')
-stripe_key_spanish = os.getenv('KEYSTRIPETESTSPANISH')
-stripe_key_english = os.getenv('KEYSTRIPETESTENGLISH')
-from stripe.error import InvalidRequestError
+
 from passlib.apps import custom_app_context as pwd_context
 from flask_jwt_extended import (
 	JWTManager, jwt_required, create_access_token,
@@ -24,11 +20,6 @@ from flask import Flask ,request, jsonify, url_for
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
-import Enviar_Email as EE
-import clientes_stripe as CS
-import paymentMethods as FPM
-import suscriptions_stripe as SS
-from queries_products import ginProtect, ginProtect_ginPreviene, ginProtect_ginPreviene_ginContigo, energiaTotal, vitalidadIntegral, saludPlata, saludTitanio, saludDiamante
 import mysql.connector
 import datetime
 
