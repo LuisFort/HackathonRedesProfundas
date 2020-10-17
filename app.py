@@ -95,7 +95,7 @@ def new_user():
 
 	
 
-	if username is None or mail is None or password is None or address is None or phone is None:
+	if mail is None or password is None or edad is None or genero is None:
 		return (jsonify({'status': 'failed', 'msg': 'missing arguments'}),400)	# missing arguments
 	if User.query.filter_by(mail=mail).first() is not None:
 		return (jsonify({'status': 'failed', 'msg': 'User exists'}),400)	# existing user
