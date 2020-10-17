@@ -195,6 +195,15 @@ def refresh():
 def hola():
 	return jsonify({'message': 'hola'}), 200
 
+@app.route('/getUser', methods=['GET'])
+@jwt_required
+def getUser():
+	mail = request.args.get('mail')
+	userId = db.session.query(User.id).filter_by(mail = mail).first()
+	if userId :
+		return jsonify({'id': userId[0], 'status': 'success'}), 200
+	return jsonify({'message': 'User not found', 'status': 'failed'}),400
+
 
 
 
