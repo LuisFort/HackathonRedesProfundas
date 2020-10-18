@@ -95,7 +95,7 @@ def update_output(n_clicks):
     client=boto3.client('rekognition',region_name='us-east-1')
 
     response = client.detect_faces(Image={'S3Object':{'Bucket':bucket,'Name':photo}},Attributes=['ALL'])
-
+    return 'hola'
     print('Detected faces for ' + photo) 
     faces = []   
     for faceDetail in response['FaceDetails']:
