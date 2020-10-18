@@ -6,7 +6,7 @@ import dash_auth
 external_stylesheets = ['https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css']
 appDash = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 appDash.config.suppress_callback_exceptions = True
-appDash.title = 'Datos Globales'
+appDash.title = 'Educación Financiera'
 server = appDash.server
 
 import flask

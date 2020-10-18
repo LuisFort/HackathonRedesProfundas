@@ -176,7 +176,8 @@ layout_ahorro=html.Div([
             ),
             html.Div(id = 'controls',className='six columns div-elementos-centro', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 600, 'borderRadius': '10px'},
               children = [
-              html.Div('Texto')
+                html.Img(src = 'assets/figura_g1.jpeg', style = {'width': '85%', 'height':'45%','text-Align': 'center', 'marginBottom': '5px'}),
+                html.Img(src = 'assets/figura_g2.jpeg', style = {'width': '85%', 'height':'45%','text-Align': 'center'})
               ]
             ),
           ]
