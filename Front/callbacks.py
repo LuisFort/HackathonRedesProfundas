@@ -8,6 +8,7 @@ import requestBack as rb
 import plotly.graph_objects as go
 import boto3
 import json
+import dash
 
 
 @appDash.callback(
