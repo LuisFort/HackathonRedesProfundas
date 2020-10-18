@@ -161,7 +161,7 @@ layout_simuladores=html.Div([
 
 layout_ahorro=html.Div([
         html.Img(src = 'assets/header1.png', style = {'width': '100%', 'height': 80, 'marginBottom': 15}),
-        html.H1("Simulador de Ahorro", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px', 'marginTop': '2%','color':'blue'}),
+        html.H1("Simulador de Ahorro", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px','color':'blue'}),
         html.Div( className='row',  # Define the row element
           children=[
             html.Div(id = 'controls',className='six columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 600, 'borderRadius': '10px'},
@@ -182,23 +182,28 @@ layout_ahorro=html.Div([
 #layout_choque=html.Div([html.H1("Simulador de Choque", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px', 'marginTop': '5%','color':'blue'})])
 layout_choque=html.Div([
         html.Img(src = 'assets/header1.png', style = {'width': '100%', 'height': 80, 'marginBottom': 15}),
-        html.H1("Simulador de Choque", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px', 'marginTop': '2%','color':'blue'}),
+        html.H1("Simulador de Choque", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px','color':'blue'}),
         html.Div( className='row',  # Define the row element
           children=[
-            html.Div(id = 'controls',className='six columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 600, 'borderRadius': '10px'},
+            html.Div(id = 'controls',className='six columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 800, 'borderRadius': '10px'},
               children = [
                 html.Iframe(src = "https://creator.us.uneeq.io/try/619d0f46-d845-4249-961f-f634d94613be", style = {"width": '100%', "height": "100%", 'borderRadius': '10px'} )
               ]
             ),
-            html.Div(id = 'controls',className='six columns div-elementos-centro', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 600, 'borderRadius': '10px'},
+            html.Div(id = 'controls',className='six columns div-elementos-centro', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 800, 'borderRadius': '10px'},
               children = [
-              html.Div('Texto')
+              #html.Div('Texto')
+              
+              html.P("Haz cuentas y obtén los resultados que más le sumen a tu ahorro para el retiro.", style = {'fontSize': '20px', 'color': 'black'}),
+              html.A(html.Img(src="http://201.175.34.38/wordpress2/wp-content/uploads/2018/01/05millenials.png", width="80%", height="700",style={'float': 'left', 'marginLeft': '10%'}), href="https://laaventurademivida.gob.mx/adultos/calculadora"),
+              
+              
               ]
             ),
           ]
         )
   ])
-layout_consejo=html.Div([html.H1("Simulador de consejos", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px', 'marginTop': '5%','color':'blue'})])
+layout_consejo=html.Div([html.H1("Simulador de consejos", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px','color':'blue'})])
 
 layout_tips = html.Div([
     html.Img(src = 'assets/header1.png', style = {'width': '100%', 'height': 80, 'marginBottom': 15}),
