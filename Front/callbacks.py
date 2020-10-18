@@ -100,9 +100,9 @@ def update_output(n_clicks):
     faces = []   
     for faceDetail in response['FaceDetails']:
         
-        faces.append(faceDetail)
+        faces.append(json.dumps(faceDetail, indent=4, sort_keys=True))
     if len(faces) > 0 :
-      return faces[0]['AgeRange']
+      return type(faces[0])
       return  str(faces[0]['AgeRange']['High']) + str(faces[0]['Gender']['Value'])
     return "Información no obtenida"
     
