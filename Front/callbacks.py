@@ -99,10 +99,10 @@ def update_output(n_clicks):
     print('Detected faces for ' + photo) 
     faces = []   
     for faceDetail in response['FaceDetails']:
-        return str(type(faceDetail))
-        faces.append(json.dumps(faceDetail, indent=4, sort_keys=True))
+        
+        faces.append(faceDetail)
     if len(faces) > 0 :
-
+      return faces[0]['AgeRange']
       return  str(faces[0]['AgeRange']['High']) + str(faces[0]['Gender']['Value'])
     return "Información no obtenida"
     
