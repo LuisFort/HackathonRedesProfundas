@@ -134,7 +134,7 @@ layout_simuladores=html.Div([
               children = [
                     html.H2('Simulador de Ahorro',style = {'textAlign': 'center', 'fontSize': '30','marginBottom': '5px', 'marginTop': '5%','color':'blue'}),
                   #  html.Img(src = 'assets/puerco.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),
-                    html.A( html.Img(src = 'assets/puerco.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),href='http://127.0.0.1:8887/ahorro'),
+                    html.A( html.Img(src = 'assets/puerco.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),href='/ahorro'),
                     html.H6('Conoce tus finanzas y prepara un mejor futuro, aprende a ahorrar y gastar.',style = { 'margin': 10, 'color': 'black'})
               ]
             ),
@@ -142,7 +142,7 @@ layout_simuladores=html.Div([
               children = [
                 html.H2('Simulador de Choque',style = {'textAlign': 'center', 'fontSize': '30','marginBottom': '5px', 'marginTop': '5%','color':'blue'}),
                #  html.Img(src = 'assets/alerta.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),
-                 html.A( html.Img(src = 'assets/alerta.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),href='http://127.0.0.1:8887/choque'),
+                 html.A( html.Img(src = 'assets/alerta.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),href='/choque'),
                  html.H6('No dejes que los imprevistos te hagan sentir mal dejandote en una situacion complicada.',style = { 'margin': 10, 'color': 'black'})
               ]
             ),
@@ -150,7 +150,7 @@ layout_simuladores=html.Div([
               children = [
                 html.H2('Consejos',style = {'textAlign': 'center', 'fontSize': '30','marginBottom': '5px', 'marginTop': '5%','color':'blue'}),
                 #html.Img(src = 'assets/msj.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),
-                  html.A(html.Img(src = 'assets/msj.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),href='http://127.0.0.1:8887/consejo'),
+                  html.A(html.Img(src = 'assets/msj.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),href='/consejo'),
                 html.H6('Escucha nuestros consejos sobre como ahorrar, prparate para jubilación, emprendimiento y gastos futuros.',style = { 'margin': 10, 'color': 'black'})
               ]
             )
