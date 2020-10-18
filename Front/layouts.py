@@ -69,13 +69,56 @@ layout_bbva_pantalla1 = html.Div([
             ),
             html.Div(id = 'controls',className='six columns div-elementos-centro', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 650, 'borderRadius': '10px'},
               children = [
-                html.H1('aqui va todo esto'),
-                html.A(dbc.Button("Continuar", id="submit-val", outline=True, color="secondary", className = 'newButton'),  href = '/simuladores')
+                html.Div(children = [
+                  html.P("Edad Inicial", style = {'width': '22%','display': 'inline-block', 'fontSize': '24px', 'color': 'black'}),
+                  html.P("Edad Retiro", style = {'width': '22%','display': 'inline-block', 'fontSize': '24px', 'color': 'black'}),
+                  html.P("Ahorro Mensual", style = {'width': '22%','display': 'inline-block', 'fontSize': '24px', 'color': 'black'}),
+                  html.P("Meta Ahorro", style = {'width': '22%','display': 'inline-block', 'fontSize': '24px', 'color': 'black'}),
+                  
+                  
+                ], style = {'marginLeft': '20px', 'width': '100%'}),
+                html.Div(children = [
+                  dcc.Input(
+                    id="edad_inicial",
+                    type='number',
+                    value = 18,
+                    style = {'width': '23%',  'marginRight': '10px','display': 'inline-block'}
+                  ),
+                  dcc.Input(
+                    id="edad_final",
+                    type='number',
+                    value = 55,
+                    style = {'width': '23%',  'marginRight': '10px','display': 'inline-block'}
+                  ),
+                  dcc.Input(
+                    id="ahorro_mensual",
+                    type='number',
+                    value = 1500,
+                    style = {'width': '23%',  'marginRight': '10px','display': 'inline-block'}
+                  ),
+                  dcc.Input(
+                    id="meta",
+                    type='number',
+                    value = 1000000,
+                    style = {'width': '23%',  'marginRight': '10px','display': 'inline-block'}
+                  ),
+
+                ], style = {'marginTop': '10px', 'marginLeft': '20px'}),
+                
+                dcc.Graph(
+                  id = 'grafica1', 
+                  responsive = True,
+                  figure = {}, 
+                  style = {'width': '70%', 'height': 350, 'marginTop': '10px', 'borderRadius': '10px'}
+                ),
+                html.Div(id='output_container', style = {'fontSize': '18px', 'color': 'black', 'width': '90%'}, children=[]),
+                
                 #html.Button("Continuar", id="submit-val",  className = 'newButton', href = '/simuladores')
               ]
             )
           ]
-        )       
+        ),
+        html.A(dbc.Button("Continuar", id="submit-val", outline=True, color="secondary", className = 'newButton', style = {'marginLeft': '18%'}),  href = '/simuladores')      
     
   ])
 
@@ -118,12 +161,17 @@ layout_simuladores=html.Div([
 
 layout_ahorro=html.Div([
         html.Img(src = 'assets/header1.png', style = {'width': '100%', 'height': 80, 'marginBottom': 15}),
-        html.H1("Simulador de Ahorro", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px', 'marginTop': '5%','color':'blue'}),
+        html.H1("Simulador de Ahorro", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px', 'marginTop': '2%','color':'blue'}),
         html.Div( className='row',  # Define the row element
           children=[
-            html.Div(id = 'controls',className='six columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 650, 'borderRadius': '10px'},
+            html.Div(id = 'controls',className='six columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 600, 'borderRadius': '10px'},
               children = [
-                html.Iframe(src = "https://creator.us.uneeq.io/try/619d0f46-d845-4249-961f-f634d94613be", style = {"width": '100%', "height": "100%", 'borderRadius': '10px'} )
+                html.Iframe(src = "https://creator.us.uneeq.io/try/c687c906-f9ba-4507-8dbd-363f9526834d", style = {"width": '100%', "height": "100%", 'borderRadius': '10px'} )
+              ]
+            ),
+            html.Div(id = 'controls',className='six columns div-elementos-centro', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 600, 'borderRadius': '10px'},
+              children = [
+              html.Div('Texto')
               ]
             ),
           ]
@@ -134,12 +182,17 @@ layout_ahorro=html.Div([
 #layout_choque=html.Div([html.H1("Simulador de Choque", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px', 'marginTop': '5%','color':'blue'})])
 layout_choque=html.Div([
         html.Img(src = 'assets/header1.png', style = {'width': '100%', 'height': 80, 'marginBottom': 15}),
-        html.H1("Simulador de Choque", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px', 'marginTop': '5%','color':'blue'}),
+        html.H1("Simulador de Choque", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px', 'marginTop': '2%','color':'blue'}),
         html.Div( className='row',  # Define the row element
           children=[
-            html.Div(id = 'controls',className='six columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 650, 'borderRadius': '10px'},
+            html.Div(id = 'controls',className='six columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 600, 'borderRadius': '10px'},
               children = [
                 html.Iframe(src = "https://creator.us.uneeq.io/try/619d0f46-d845-4249-961f-f634d94613be", style = {"width": '100%', "height": "100%", 'borderRadius': '10px'} )
+              ]
+            ),
+            html.Div(id = 'controls',className='six columns div-elementos-centro', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 600, 'borderRadius': '10px'},
+              children = [
+              html.Div('Texto')
               ]
             ),
           ]
@@ -284,4 +337,6 @@ layout_tips = html.Div([
 
 
   ])
+
+
 
