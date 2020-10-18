@@ -64,7 +64,7 @@ layout_bbva_pantalla1 = html.Div([
           children=[
             html.Div(id = 'controls',className='six columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 650, 'borderRadius': '10px'},
               children = [
-                html.Iframe(src = "https://creator.us.uneeq.io/try/619d0f46-d845-4249-961f-f634d94613be", style = {"width": '100%', "height": "100%", 'borderRadius': '10px'} )
+                html.Iframe(src = "https://creator.us.uneeq.io/try/d64f1e78-0122-4473-83f1-cf0c102eaa1f", style = {"width": '100%', "height": "100%", 'borderRadius': '10px'} )
               ]
             ),
             html.Div(id = 'controls',className='six columns div-elementos-centro', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 650, 'borderRadius': '10px'},
