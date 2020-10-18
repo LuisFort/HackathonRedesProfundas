@@ -123,7 +123,7 @@ layout_bbva_pantalla1 = html.Div([
             )
           ]
         ),
-        html.A(dbc.Button("Continuar", id="submit-val", outline=True, color="secondary", className = 'newButton', style = {'marginLeft': '18%'}),  href = '/simuladores')      
+        html.A(dbc.Button("Continuar", id="submit-val", outline=True, color="secondary", className = 'newButton', style = {'marginLeft': '18%'}),  href = '/segmentacion')      
     
   ])
 
@@ -198,6 +198,7 @@ layout_segmentacion=html.Div([
                 #dbc.Button("Obtener información", id="submit-val", outline=True, color="secondary", className = 'newButton'),
                 html.Button('Submit', id='submit-val', n_clicks=0, className = 'newButton'),
                 html.Div(id='output_container2', style = {'fontSize': '18px', 'color': 'black', 'width': '90%'}, children=[]),
+                html.A(dbc.Button("Continuar", id="submit-val2", outline=True, color="secondary", className = 'newButton', style = {'marginLeft': '18%'}),  href = '/simuladores')
               ]
             ),
           ]
