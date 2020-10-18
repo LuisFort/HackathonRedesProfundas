@@ -10,12 +10,13 @@ appDash.title = 'Datos Globales'
 server = appDash.server
 
 import flask
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objects as go
-from layouts import login_form, layout_bbva_pantalla1, layout_simuladores, layout_ahorro, layout_choque, layout_consejo, layout_tips
+from layouts import login_form, layout_bbva_pantalla1, layout_simuladores, layout_ahorro, layout_choque, layout_consejo, layout_tips, layout_segmentacion
 import callbacks
+import os
 #from app import appDash
 
 
@@ -48,12 +49,12 @@ def display_page(pathname):
 		return layout_choque
 	if pathname == '/consejo':
 		return layout_tips  
+	if pathname == '/segmentacion':
+		return layout_segmentacion
 	
 	else:	
 		return html.H1('404', style = {'textAlign': 'center', 'fontSize': '40'})
 			
-
-
 
 
 

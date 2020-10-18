@@ -6,6 +6,8 @@ import json
 import time
 import requestBack as rb
 import plotly.graph_objects as go
+import boto3
+import json
 
 
 @appDash.callback(
@@ -72,4 +74,33 @@ def update_graph(edad, retiro_edad_meta, ahorro_mes, dinero_meta):
       estás lejos de tu meta. Si llega al naranja quiere decir que estás cerca. Y si llega a verde quiere decir que tu meta la cumplirás.
       En la derecha encontrarás un indicador de la cantidad que te faltaría o te sobraría de tu ahorro mensual para lograr tu meta"""
       return explicacion, fig
+
+
+@appDash.callback(
+  Output(component_id='output_container2', component_property='children'),
+  [Input('submit-val', 'n_clicks')],
+  
+  )
+def update_output(n_clicks):
+
+  
+  changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
+  if 'submit-val' in changed_id:
+    
+
+
+    photo='prueba1.jpg'
+    bucket='aws-deepracer-50376646-a8ec-4ddd-b4ec-370529022492'
+    client=boto3.client('rekognition',region_name='us-east-1')
+
+    response = client.detect_faces(Image={'S3Object':{'Bucket':bucket,'Name':photo}},Attributes=['ALL'])
+
+    print('Detected faces for ' + photo) 
+    faces = []   
+    for faceDetail in response['FaceDetails']:
+        
+        faces.append(json.dumps(faceDetail, indent=4, sort_keys=True))
+    if len(faces) > 0 :
+      return  str(faces[0]['AgeRange']['High']) + str(faces[0]['Gender']['Value'])
+    return "Información no obtenida"
     

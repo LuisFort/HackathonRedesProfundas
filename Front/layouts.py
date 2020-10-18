@@ -183,6 +183,27 @@ layout_ahorro=html.Div([
         )
   ])
 
+layout_segmentacion=html.Div([
+        html.Img(src = 'assets/header1.png', style = {'width': '100%', 'height': 80, 'marginBottom': 15}),
+        html.H1("Segmentacion", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px','color':'blue'}),
+        html.Div( className='row',  # Define the row element
+          children=[
+            html.Div(id = 'controls',className='six columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 600, 'borderRadius': '10px'},
+              children = [
+                html.Img(src = 'assets/prueba1.jpg', style = {'width': '100%', 'height': 600, 'marginBottom': 15}),
+              ]
+            ),
+            html.Div(id = 'controls',className='six columns div-elementos-centro', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 600, 'borderRadius': '10px'},
+              children = [
+                #dbc.Button("Obtener información", id="submit-val", outline=True, color="secondary", className = 'newButton'),
+                html.Button('Submit', id='submit-val', n_clicks=0, className = 'newButton'),
+                html.Div(id='output_container2', style = {'fontSize': '18px', 'color': 'black', 'width': '90%'}, children=[]),
+              ]
+            ),
+          ]
+        )
+  ])
+
 
 #layout_choque=html.Div([html.H1("Simulador de Choque", style = {'textAlign': 'center', 'fontSize': '40','marginBottom': '5px', 'marginTop': '5%','color':'blue'})])
 layout_choque=html.Div([
