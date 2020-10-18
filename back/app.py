@@ -84,9 +84,9 @@ def new_user():
 	
 	try :
 		data = request.get_json(force=True)
-        print(data)
-        with open("logs_data.txt", "a+") as f:
-                f.write("this is data: " + str(data)+'\n')
+		print(data)
+		with open("logs_data.txt", "a+") as f:
+				f.write("this is data: " + str(data)+'\n')
 		password = data['password']
 		mail = data['mail']
 		edad = data['edad']
@@ -126,9 +126,9 @@ def login():
    
 	#data = request.form
 	data = request.get_json(force=True)
-    print(data)
-    with open("logs_data.txt", "a+") as f:
-            f.write("this is data: " + str(data)+'\n')
+	print(data)
+	with open("logs_data.txt", "a+") as f:
+			f.write("this is data: " + str(data)+'\n')
 	mail = data['mail']
 	password = data['password']
 		
