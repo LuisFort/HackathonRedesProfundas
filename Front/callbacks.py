@@ -95,13 +95,14 @@ def update_output(n_clicks):
     client=boto3.client('rekognition',region_name='us-east-1')
 
     response = client.detect_faces(Image={'S3Object':{'Bucket':bucket,'Name':photo}},Attributes=['ALL'])
-    return 'hola'
+    
     print('Detected faces for ' + photo) 
     faces = []   
     for faceDetail in response['FaceDetails']:
         
         faces.append(json.dumps(faceDetail, indent=4, sort_keys=True))
     if len(faces) > 0 :
+      return 'hola'
       return  str(faces[0]['AgeRange']['High']) + str(faces[0]['Gender']['Value'])
     return "Información no obtenida"
     
