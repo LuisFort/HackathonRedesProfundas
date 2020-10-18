@@ -59,7 +59,12 @@ login_form = html.Div([
 layout_bbva_pantalla1 = html.Div([
       
         html.Img(src = 'assets/header1.png', style = {'width': '100%', 'height': 80, 'marginBottom': 15}),
-
+        html.Div(
+          children = [
+            html.P("¿Estás listo para comenzar a aprender temas de educación financiera? Iniciemos esta gran aventura escribiendo un hola! y Minerva te responderá", style = {'color': 'black', 'fontSize': '28px'}),
+          ], style = {'width': '98%', 'backgroundColor': '#C7E7F5', 'borderRadius': '10px', 'marginLeft': '1%', 'textAlign': 'center'}
+        ),
+        
         html.Div( className='row',  # Define the row element
           children=[
             html.Div(id = 'controls',className='six columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 650, 'borderRadius': '10px'},
@@ -187,7 +192,7 @@ layout_choque=html.Div([
           children=[
             html.Div(id = 'controls',className='six columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 800, 'borderRadius': '10px'},
               children = [
-                html.Iframe(src = "https://creator.us.uneeq.io/try/619d0f46-d845-4249-961f-f634d94613be", style = {"width": '100%', "height": "100%", 'borderRadius': '10px'} )
+                html.Iframe(src = "https://creator.us.uneeq.io/try/5ce9202d-e9bc-4a9f-907a-5f3314345a76", style = {"width": '100%', "height": "100%", 'borderRadius': '10px'} )
               ]
             ),
             html.Div(id = 'controls',className='six columns div-elementos-centro', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 800, 'borderRadius': '10px'},
