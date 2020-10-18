@@ -87,7 +87,7 @@ def update_output(n_clicks):
   changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
   if 'submit-val' in changed_id:
     
-
+    return "hola"
 
     photo='prueba1.jpg'
     bucket='aws-deepracer-50376646-a8ec-4ddd-b4ec-370529022492'
