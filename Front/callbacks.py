@@ -98,11 +98,13 @@ def update_output(n_clicks):
     
     print('Detected faces for ' + photo) 
     edades = []   
+    generos = []
     for faceDetail in response['FaceDetails']:
         
         edades.append(faceDetail['AgeRange']['High'])
+        generos.append(faceDetail['Gender']['Value'])
     if len(edades) > 0 :
-      return 'hola'
+      return {'Edad': edades[0], 'Genero': generos[0]}
       return  str(faces[0]['AgeRange']['High']) + str(faces[0]['Gender']['Value'])
     return "Información no obtenida"
     
