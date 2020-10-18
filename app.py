@@ -83,8 +83,10 @@ class Token(db.Model):
 def new_user():
 	
 	try :
-		data = request.form
-		print(data)
+		data = request.get_json(force=True)
+        print(data)
+        with open("logs_data.txt", "a+") as f:
+                f.write("this is data: " + str(data)+'\n')
 		password = data['password']
 		mail = data['mail']
 		edad = data['edad']
@@ -122,7 +124,11 @@ def new_user():
 @app.route('/login', methods=['POST'])
 def login():
    
-	data = request.form
+	#data = request.form
+	data = request.get_json(force=True)
+    print(data)
+    with open("logs_data.txt", "a+") as f:
+            f.write("this is data: " + str(data)+'\n')
 	mail = data['mail']
 	password = data['password']
 		
