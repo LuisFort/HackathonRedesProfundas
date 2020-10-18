@@ -69,7 +69,7 @@ layout_bbva_pantalla1 = html.Div([
             ),
             html.Div(id = 'controls',className='six columns div-elementos-centro', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 20, 'height': 650, 'borderRadius': '10px'},
               children = [
-                html.H1('hola 2'),
+                html.H1('aqui va todo esto'),
                 html.A(dbc.Button("Continuar", id="submit-val", outline=True, color="secondary", className = 'newButton'),  href = '/simuladores')
                 #html.Button("Continuar", id="submit-val",  className = 'newButton', href = '/simuladores')
               ]
