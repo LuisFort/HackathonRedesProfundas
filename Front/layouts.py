@@ -148,7 +148,7 @@ layout_simuladores=html.Div([
                 html.H2('Simulador de Choque',style = {'textAlign': 'center', 'fontSize': '30','marginBottom': '5px', 'marginTop': '5%','color':'blue'}),
                #  html.Img(src = 'assets/alerta.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),
                  html.A( html.Img(src = 'assets/alerta.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),href='/choque'),
-                 html.H6('No dejes que los imprevistos te hagan sentir mal dejandote en una situacion complicada.',style = { 'margin': 10, 'color': 'black'})
+                 html.H6('No dejes que los imprevistos te hagan sentir mal dejándote en una situación complicada.',style = { 'margin': 10, 'color': 'black'})
               ]
             ),
             html.Div(id = 'controls',className='four columns', style = {'backgroundColor': '#C7E7F5', 'marginLeft': 30, 'height': 550, 'borderRadius': '10px'},
@@ -156,7 +156,7 @@ layout_simuladores=html.Div([
                 html.H2('Consejos',style = {'textAlign': 'center', 'fontSize': '30','marginBottom': '5px', 'marginTop': '5%','color':'blue'}),
                 #html.Img(src = 'assets/msj.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),
                   html.A(html.Img(src = 'assets/msj.png', style = {'width': '95%', 'height':'70%','text-Align': 'center'}),href='/consejo'),
-                html.H6('Escucha nuestros consejos sobre como ahorrar, prparate para jubilación, emprendimiento y gastos futuros.',style = { 'margin': 10, 'color': 'black'})
+                html.H6('Escucha nuestros consejos sobre como ahorrar, prepárate para jubilación, emprendimiento y gastos futuros.',style = { 'margin': 10, 'color': 'black'})
               ]
             )
           ]
