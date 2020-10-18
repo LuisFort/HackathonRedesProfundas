@@ -70,6 +70,6 @@ def update_graph(edad, retiro_edad_meta, ahorro_mes, dinero_meta):
 
       explicacion = """La barra negra indica que tan cerca estás de lograr tu meta, si llega al rojo quiere decir que 
       estás lejos de tu meta. Si llega al naranja quiere decir que estás cerca. Y si llega a verde quiere decir que tu meta la cumplirás.
-      En la derecha encontrarás un undicador de la cantidad que te faltaría o te sobraría de tu ahorro mensual para lograr tu meta"""
+      En la derecha encontrarás un indicador de la cantidad que te faltaría o te sobraría de tu ahorro mensual para lograr tu meta"""
       return explicacion, fig
     
