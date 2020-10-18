@@ -101,7 +101,7 @@ def update_output(n_clicks):
     for faceDetail in response['FaceDetails']:
         
         edades.append(faceDetail['AgeRange']['High'])
-    if len(faces) > 0 :
+    if len(edades) > 0 :
       return 'hola'
       return  str(faces[0]['AgeRange']['High']) + str(faces[0]['Gender']['Value'])
     return "Información no obtenida"
