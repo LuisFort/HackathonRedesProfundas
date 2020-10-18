@@ -97,12 +97,12 @@ def update_output(n_clicks):
     response = client.detect_faces(Image={'S3Object':{'Bucket':bucket,'Name':photo}},Attributes=['ALL'])
     
     print('Detected faces for ' + photo) 
-    faces = []   
+    edades = []   
     for faceDetail in response['FaceDetails']:
         
-        faces.append(faceDetail)
+        edades.append(faceDetail['AgeRange']['High'])
     if len(faces) > 0 :
-      return faces[0]['AgeRange']
+      return 'hola'
       return  str(faces[0]['AgeRange']['High']) + str(faces[0]['Gender']['Value'])
     return "Información no obtenida"
     
